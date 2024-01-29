@@ -1,0 +1,21 @@
+name: CD Pipeline
+
+on:
+  workflow_run:
+    workflows: ["CI Pipeline"]
+    types: 
+        - completed
+
+jobs:
+
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - name: Pull Docker image
+      run: sudo docker pull robetatis/cicdtest:latest
+    - name: Delete old Docker container
+      run: sudo docker rm -f cicdtest-container || true
+    - name: Run Docker container
+      run: sudo docker run -d --name cicdtest robetatis/cicdtest 
