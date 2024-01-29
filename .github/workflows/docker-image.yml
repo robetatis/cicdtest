@@ -21,5 +21,8 @@ jobs:
     - name: Build Docker image
       run: docker build -t cicdtest .
 
+    - name: Tag Docker image
+      run: docker tag cicdtest robetatis/cicdtest:latest 
+    
     - name: Push to Dockerhub
       run: docker push robetatis/cicdtest:latest

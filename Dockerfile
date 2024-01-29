@@ -2,6 +2,6 @@ FROM python:3.9-alpine
 
 WORKDIR /cicdtest/
 
-COPY . .
+COPY . /cicdtest/
 
 CMD ["python", "main.py"]
