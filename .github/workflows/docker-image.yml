@@ -19,7 +19,7 @@ jobs:
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
     - name: Build Docker image
-      run: docker build -t cicdtest .
+      run: docker build -t cicdtest:latest .
 
     - name: Push to Dockerhub
       run: docker push robetatis/cicdtest:latest
